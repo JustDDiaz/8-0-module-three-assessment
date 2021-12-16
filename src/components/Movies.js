@@ -27,9 +27,13 @@ class Movies extends Component {
   };
 
   dropDownChange = (event) => {
-    this.setState({
-      currentMovie: event.target.value,
-    });
+    event.target.value !== "empty"
+      ? this.setState({
+          currentMovie: event.target.value,
+        })
+      : this.setState({
+          currentMovie: null,
+        });
   };
 
   render() {
@@ -46,6 +50,7 @@ class Movies extends Component {
         <h1>Select a Movie</h1>
         <select onChange={this.dropDownChange}>
           <option></option>
+          <option>empty</option>
           {filmOption}
         </select>
         <b className="currentMovie">
