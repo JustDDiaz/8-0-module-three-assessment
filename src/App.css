@@ -9,6 +9,7 @@
   text-align: center;
   align-items: center;
   background-color: rgb(127, 255, 211);
+  font-size: 25px;
 }
 
 .ghibli-logo {
@@ -30,4 +31,9 @@
 .people {
   text-align: center;
   background-color: rgb(245, 244, 220);
+}
+
+.locations {
+  text-align: center;
+  background-color: rgb(135, 206, 235);
 }

@@ -55,7 +55,7 @@ class Movies extends Component {
         </select>
         <b className="currentMovie">
           {this.state.currentMovie
-            ? `Title: ${currentMovieInfo.title} Release Date: ${currentMovieInfo.release_date}
+            ? `Title: ${currentMovieInfo.title}  Release Date: ${currentMovieInfo.release_date} 
           Description: ${currentMovieInfo.description}`
             : null}
         </b>
