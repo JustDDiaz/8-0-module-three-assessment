@@ -4,7 +4,7 @@ import "../App.css";
 class Locations extends Component {
   render() {
     return (
-      <div className="Locations">
+      <div className="locations">
         <h1>List of Locations</h1>
       </div>
     );

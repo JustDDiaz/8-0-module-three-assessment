@@ -4,7 +4,7 @@ import "../App.css";
 class Home extends Component {
   render() {
     return (
-      <div className="Home">
+      <div className="home">
         <h1>Welcome to GhibliApp</h1>
       </div>
     );

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 class Navbar extends Component {
   render() {
     return (
-      <nav className="Navbar">
+      <nav className="navbar">
         <Link to="/">
           <img
             className="ghibli-logo"
