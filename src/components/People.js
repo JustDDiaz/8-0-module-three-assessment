@@ -7,7 +7,8 @@ class People extends Component {
     this.state = {
       peopleList: [],
       currentPerson: null,
-      userInput: null,
+      userInput: "",
+      hasSearched: false,
     };
   }
 
@@ -35,32 +36,40 @@ class People extends Component {
 
   handleFindPerson = (event) => {
     event.preventDefault();
-    let currentPersonObject = this.state.peopleList.find((person) => {
-      return person.name === this.state.userInput;
+    const { peopleList, userInput } = this.state;
+    let currentPersonObject = peopleList.find((person) => {
+      return person.name.includes(userInput);
     });
     this.setState({
       currentPerson: currentPersonObject,
+      userInput: "",
+      hasSearched: true,
     });
   };
 
   render() {
-    let { currentPerson } = this.state;
+    let { currentPerson, userInput, hasSearched } = this.state;
+
     return (
       <div className="people">
         <h1>Search for a Person</h1>
-        <form>
+        <form onSubmit={this.handleFindPerson}>
           <input
             type="text"
+            value={userInput}
             placeholder="Find Your Person"
             onChange={this.userInputName}
           ></input>
-          <button onSubmit={this.handleFindPerson} value={this.state.userInput}>
-            Submit
-          </button>
+          <button type="submit">Submit</button>
         </form>
-        {currentPerson?.name}
-        {currentPerson?.age}
-        {currentPerson?.gender}
+        {currentPerson && (
+          <div>
+            <h3>{currentPerson.name}</h3>
+            <p>{currentPerson.age}</p>
+            <p>{currentPerson.gender}</p>
+          </div>
+        )}
+        {!currentPerson && hasSearched && "Not Found"}
       </div>
     );
   }

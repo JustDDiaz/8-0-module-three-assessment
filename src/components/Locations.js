@@ -33,7 +33,8 @@ class Locations extends Component {
   };
 
   render() {
-    let allLocations = this.state.locationList.map((location, i) => {
+    const { locationList, showLocations } = this.state;
+    let allLocations = locationList.map((location, i) => {
       return (
         <ul key={i}>
           <li>
@@ -51,9 +52,9 @@ class Locations extends Component {
       <div className="locations">
         <h1>List of Locations</h1>
         <button onClick={this.toggleShow}>
-          Show Locations / Hide Locations
+          {showLocations ? "Hide Locations" : "Show Locations"}
         </button>
-        {this.state.showLocations ? [allLocations] : null}
+        {showLocations ? [allLocations] : null}
       </div>
     );
   }
